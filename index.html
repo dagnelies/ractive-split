@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang='en'>
+<head>
+	<meta charset='utf-8'>
+	<title>Split plugin for Ractive.js</title>
+
+	<!-- CSS -->
+	<link href='http://fonts.googleapis.com/css?family=Voltaire' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='style.css'>
+	
+	<!-- Ractive -->
+	<script src='https://unpkg.com/ractive@latest'></script>
+	
+	<!-- this plugin -->
+	<link rel="stylesheet" href="bin/ractive-split.css">
+	<script src="bin/ractive-split.min.js"></script>
+	
+	<style>
+	.fh {
+		height: 400px;
+	}
+	h2 {
+		text-align: center;
+	}
+	</style>
+</head>
+
+<body>
+
+	<a class='forkme' href='https://github.com/dagnelies/ractive-split'>Fork me on GitHub</a>
+
+	<header>
+		<h1>Split plugin for Ractive.js</h1>
+		<p class='strap'>
+			<span class='download'>
+				CSS: <a href='bin/ractive-split.css'>ractive-split.css</a><br/>
+				JS: <a href='bin/ractive-split.min.js'>ractive-split.min.js</a>
+			</span>
+			
+			<span class='more-plugins'>more plugins at <a href='http://docs.ractivejs.org/latest/plugins'>docs.ractivejs.org/latest/plugins</a></span>
+		</p>
+	</header>
+	
+	<main>
+		<p>This plugin is a wrapper around <a href="https://nathancahill.github.io/Split.js/">Split.js</a></p>
+
+		<div id='demo' class='clearfix'></div>
+
+		<pre id='demo-template-view' class='prettyprint lang-html'></pre>
+		
+		<pre id='demo-code-view' class='prettyprint lang-js'></pre>
+	</main>
+
+	<!-- add additional info such as your homepage here, if you want -->
+	<footer>
+		<p>Copyright &copy; Arnaud Dagnelies. Licensed MIT</p>
+	</footer>
+
+	<!-- Demo template -->
+	<script id='demo-template' type='text/ractive'>
+		<!-- Outer vertical split -->
+		<split class="fh" direction="vertical" sizes="[20,60,20]">
+			
+			<div><h2> North {{title}} </h2></div>
+			
+			<!-- Inner horizontal split -->
+			<split sizes="[20,60,20]">
+				
+				<div><h2> West </h2></div>
+				
+				<div>
+					<h2> Center {{title}} </h2>
+					<center><input value="{{title}}" /></center>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+				
+				<div><h2> East </h2></div>
+				
+			</split>
+			
+			<div><h2> South </h2></div>
+			
+		</split>
+	</script>
+
+
+
+	<!-- Demo code -->
+	<script id='demo-code'>
+		ractive = new Ractive({
+			el: 'demo',
+			template: '#demo-template',
+			data: {
+				title: ''
+			}
+		});
+	</script>
+
+	<!-- Insert code into the page -->
+	<script src='prettify.js'></script>
+	<script src='demo.js'></script>
+</body>
+</html>
