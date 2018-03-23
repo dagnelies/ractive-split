@@ -4,7 +4,7 @@ Ractive.components.split = Ractive.extend({
 	data: {
 		direction: 'horizontal'
 	},
-	template: '<div class="{{class}} split-{{direction}}">{{>content}}</div>',
+	template: '<div class="{{class}} split-{{direction}}">{{yield}}</div>',
 	oncomplete: function() {
 		var children = this.find('div').children;
 		children = Array.prototype.slice.call( children ); // HTMLCollection -> Array
